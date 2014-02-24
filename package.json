@@ -1,0 +1,29 @@
+{
+	"name": "mobile-performance",
+	"title": "Mobile Performance",
+	"description": "jQuery mobile performance presentation",
+	"version": "0.0.0",
+	"homepage": "http://mobile-performance.uglymongrel.com",
+	"author": {
+		"name": "Alexander R Schmitz"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/arschmitz/mobile-performance.git"
+	},
+	"bugs": "https://github.com/arschmitz/mobile-performance/issues",
+	"licenses": [
+		{
+			"type": "MIT"
+		}
+	],
+	"dependencies": {
+		"jquery": ">=1.8.3",
+		"socket.io": "0.9.16",
+		"express": "3.4.8"
+	},
+	"main": "Gruntfile.js",
+	"engines": {
+		"node": ">= 0.8.0"
+	}
+}

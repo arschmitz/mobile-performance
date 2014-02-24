@@ -1,0 +1,24 @@
+<div data-role="page" class="ui-page" id="30-new-theme" data-defaults="true">
+	<div class="ui-content" role="main">
+		<h1>The new theme minimizes dom manipulation</h1>
+
+		<h3>Pre - Enhancment</h3>
+<script type="syntaxhighlighter" class="brush: php; html-script: true"><![CDATA[
+<button>Button</button>
+]]></script>
+		<h3>1.3.x</h3>
+<script type="syntaxhighlighter" class="brush: php; html-script: true"><![CDATA[
+<div data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" data-theme="c" data-disabled="false" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-up-c" aria-disabled="false">
+	<span class="ui-btn-inner">
+		<span class="ui-btn-text">Button</span>
+	</span>
+	<button class="ui-btn-hidden" data-disabled="false">Button</button>
+</div>
+]]></script>
+	<h3>1.4.x</h3>
+<script type="syntaxhighlighter" class="brush: php; html-script: true"><![CDATA[
+<button class="ui-btn ui-shadow ui-corner-all" role="button">Button</button>
+]]></script>
+		<div style="height:5px;"></div>
+	</div>
+</div>
