@@ -8,5 +8,3 @@
 		</form>
 		<h2 class="preso-footer-text">Alexander Schmitz Twitter: @alexrschmitz github & irc: arschmitz</h2>
 	</div>
-	</body>
-</html>

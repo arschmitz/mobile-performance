@@ -22,6 +22,9 @@
 	line-height: 1em;
 	margin: .2em;
 }
+.ui-header .preso-forward-button {
+	border-radius:.3125em;
+}
 .preso-follow-checkbox-wrapper {
 	display:inline-block;
 	margin: .2em;
@@ -30,6 +33,10 @@
 .ui-footer .ui-checkbox {
 	margin: 0;
 	padding: 0;
+}
+html .preso-checkbox-list li.ui-btn {
+	padding-left: 2.5em;
+	background: #fff;
 }
 .preso-footer-text{
 	position: absolute;

@@ -1,0 +1,31 @@
+<div data-role="page"  class="ui-page ui-page-theme-a" id="35-document-and-window" data-defaults="true">
+	<div class="ui-content" role="main">
+		<div class="ui-grid-a">
+			<div class="ui-block-a">
+				<h1>$.mobile.window</h1>
+				<ul class="preso-inset-list ui-listview ui-listview-inset ui-corner-all ui-shadow">
+					<li class="ui-li-static ui-body-inherit ui-first-child" >Stored refrence to $( window )</li>
+					<li class="ui-li-static ui-body-inherit ui-last-child" >Useful to avoid creating a jQuery object on every use</li>
+				</ul>
+			</div>
+			<div class="ui-block-b">
+				<h1>$.mobile.document</h1>
+				<ul class="preso-inset-list ui-listview ui-listview-inset ui-corner-all ui-shadow">
+					<li class="ui-li-static ui-body-inherit ui-first-child" >Stored refrence to $( document )</li>
+					<li class="ui-li-static ui-body-inherit ui-last-child" >Useful to avoid creating a jQuery object on every use</li>
+				</ul>
+			</div>
+		</div>
+		<ul class="preso-inset-list ui-listview ui-listview-inset ui-corner-all ui-shadow">
+			<li class="ui-li-static ui-body-inherit ui-first-child" >
+				<h1>Used internally</h1>
+			</li>
+			<li class="ui-li-static ui-body-inherit" >
+				<h1>especially useful for attaching delegated events</h1>
+			</li>
+			<li class="ui-li-static ui-body-inherit ui-last-child" >
+				<h1>Don't use inside widgets. Use this.document and this.window</h1>
+			</li>
+		</ul>
+	</div>
+</div>

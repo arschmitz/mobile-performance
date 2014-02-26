@@ -26,15 +26,9 @@
 		}
 		echo "</script>";
 	?>
-	<script src="http://localhost:420/socket.io/socket.io.js"></script>
+	<script src="<?php echo SOCKETPATH; ?>"></script>
 	<script>
-	  var socket = io.connect('http://localhost:420');
-	  socket.on('connected', function (data) {
-	  	console.log( data.message );
-	  });
-	  socket.on( 'changeslide', function( data ){
-	  	$.mobile.changePage( "#" + data.page );
-	  });
+	  
 	</script>
 </head>
 <body>
