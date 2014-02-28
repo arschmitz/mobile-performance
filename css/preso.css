@@ -20,6 +20,22 @@
 	padding-top:44px;
 	padding-bottom: 43px;
 }
+@media only screen and (orientation : portrait){
+	html body .ui-grid-a {
+		width:100%;
+	}
+	html body .ui-grid-a>.ui-block-a, html body .ui-grid-a>.ui-block-b {
+		clear: both;
+		width: 100%;
+	}
+	.ui-page.ui-page-header-fixed.ui-page-footer-fixed {
+		padding-bottom:400px;
+	}
+}
+html .ui-listview > li h1,  html .ui-listview > li.ui-li-static{
+	white-space: normal;
+	text-overflow: initial;
+}
 .preso-h1 {
 	font-weight: bold;
 	font-size: 1.5em;
