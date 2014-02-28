@@ -16,6 +16,10 @@
 	top: -9000px;
 	position: absolute;
 }
+.ui-page.ui-page-header-fixed.ui-page-footer-fixed{
+	padding-top:44px;
+	padding-bottom: 43px;
+}
 .preso-h1 {
 	font-weight: bold;
 	font-size: 1.5em;

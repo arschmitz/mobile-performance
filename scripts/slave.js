@@ -12,8 +12,3 @@ socket.on( 'changeslide', function( data ){
 		$.mobile.changePage( currentSlide );
 	}
 });
-$.mobile.document.on( "change", "#follow", function(){
-	if( $( this ).is( ":checked" ) && currentSlide !== undefined ){
-		$.mobile.changePage( currentSlide, {} );
-	}
-});

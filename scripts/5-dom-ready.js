@@ -3,24 +3,10 @@
 	// Enhance all the content outside the page on first page create
 	$.mobile.document.one( "pagecreate", function(){
 
-		// Enhance the header
-		$( ".preso-header, .preso-footer" ).toolbar({
-			position: "fixed",
-			tapToggle: false,
-			theme: "a",
-			role: "header"
-		});
-
 		// Enhance the panel
 		$( ".preso-panel" ).panel({
 			display: "overlay",
 			theme: "b"
-		});
-
-		// Enhance the control group
-		$( ".preso-header-group" ).controlgroup({
-			enhanced: true,
-			type: "horizontal"
 		});
 
 		// Bind forward and back button navigation
@@ -37,20 +23,18 @@
 					break;
 				case $.ui.keyCode.RIGHT:
 				case $.ui.keyCode.SPACE:
-				case $.ui.keyCode.ENTER:
 					navigate( "next" );
 					break;
 			}
 		})
 
 		// Enhance the checkbox widget
-		$( "#checkbox-enhanced" ).checkboxradio({
+		$( "#follow" ).checkboxradio({
 			enhanced: true
 		});
 
 		// Enhance popup on master view
 		$( ".preso-master-popup").popup({ theme: "a"});
-		$( ".preso-master-popup-header" ).toolbar({ theme: "b" });
 	});
 
 	// Bind to swipe to navigate forward and back
@@ -69,6 +53,23 @@
 			});
 		}
 	}
+
+	$.mobile.document.on( "pagechange", function( event ){
+		$( ".ui-page-active" ).next( ".ui-page" ).find( "img" ).each(function(){
+			if( $( this ).attr( "data-src" ) !== "loaded" ){
+				$( this ).attr( "src", $( this ).attr( "data-src" ) );
+				$( this ).attr( "data-src", "loaded" );
+			}
+		});
+	});
+	$.mobile.document.on( "pagebeforechange", function( event, ui ){
+		$( ui.toPage[0] ).find( "img" ).each(function(){
+			if( $( this ).attr( "data-src" ) !== "loaded" ){
+				$( this ).attr( "src", $( this ).attr( "data-src" ) );
+				$( this ).attr( "data-src", "loaded" );
+			}
+		});
+	});
 
 	// Auto size images to fight without scrolling
 	$.mobile.document.on( "pagecreate", function(){
@@ -139,6 +140,10 @@
 			top = ( index / $( ".ui-panel-inner" ).find( ".ui-btn" ).length > 0.5 )? true: false,
 			direction = ( !top )? "next": "prev";
 		$( ".ui-panel-inner" ).find( ".ui-btn-active" ).parent()[direction]()[direction]()[ 0 ].scrollIntoView( top );
+	});
+
+	$(function(){
+		SyntaxHighlighter.all();
 	});
 
 })( jQuery );

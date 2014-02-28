@@ -20,23 +20,13 @@
 		}
 		echo CssMin::minify( $styles );
 		echo "</style>";
-
-		$files = scandir('./scripts');
+		echo "<script src='scripts/'></script>";
 		echo "<script>";
-		$scripts = "";
-		require( 'min/jsmin.php' );
-		foreach($files as $file){
-			if( $file !== "." && $file !== ".." && $file != "master.js" && $file != "slave.js" && $file !== ".DS_Store") {
-				 $scripts .= file_get_contents("./scripts/".$file);
-				 $scripts .= "\n";
-			}
-		}
 		if( $master ){
-			$scripts .= file_get_contents( "./scripts/master.js" );
+			include( "./scripts/master.js" );
 		} else {
-			$scripts .= file_get_contents( "./scripts/slave.js" );
+			include( "./scripts/slave.js" );
 		}
-		echo JSMin::minify( $scripts );
 		echo "</script>";
 	?>
 </head>
