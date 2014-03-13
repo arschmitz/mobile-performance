@@ -1,33 +1,20 @@
 <body>
 	<?php
-		require( "min/htmlmin.php" );
-		echo Minify_HTML::minify( file_get_contents(  "header.html" ) );
-		if( $master ) {
-			echo Minify_HTML::minify( file_get_contents(  "popup.html" ) );
+		require( $_SERVER[ 'DOCUMENT_ROOT' ]."/min/htmlmin.php" );
+		echo Minify_HTML::minify( file_get_contents(  $_SERVER[ 'DOCUMENT_ROOT' ]."/header.html" ) );
+		if( isset( $master ) ) {
+			echo Minify_HTML::minify( file_get_contents(  $_SERVER[ 'DOCUMENT_ROOT' ]."/popup.html" ) );
 		}
-		$files = scandir('./slides');
+		$files = scandir('./');
 		$subfilesSorted;
 		foreach( $files as $file ){
-			if( $file !== "." && $file !== ".." && !is_dir( "./slides/".$file ) ) {
+			if( $file !== "." && $file !== ".." && !is_dir( $file ) && preg_match("/\.html/", $file) ) {
 				$index = intVal( substr( $file, 0, 2 ) );
 				$filesSorted[ $index ] = $file;
-			} else if ( is_dir( "./slides/".$file ) && $file !== "." && $file !== ".." ) {
-				$subfolder = scandir( "./slides/".$file );
-				foreach( $subfolder as $subfile ){
-					if( $subfile !== "." && $subfile !== ".." ) {
-						$index = intVal( substr( $subfile, 0, 2 ) );
-						$subfilesSorted[ $index ] = $file."/".$subfile;
-					}
-				}
 			}
 		}
 
 		ksort( $filesSorted );
-		krsort( $subfilesSorted );
-		foreach( $subfilesSorted as $file ) {
-			array_unshift( $filesSorted, $file );
-		}
-		print_r( $filesSorted );
 		$panel =  "<div class='preso-panel' id='slide-list'>";
 		$panel .= "<ol class='preso-panel-list ui-mini ui-listview'>";
 		$panel .= "<li class='ui-li-divider ui-bar-inherit ui-first-child'>Table of Contents</li>";
@@ -39,7 +26,7 @@
 		$perf = false;
 		foreach($filesSorted as $file){
 			if( $file !== "." && $file !== ".." ) {
-				$slides .= file_get_contents( "./slides/".$file );
+				$slides .= file_get_contents( $file );
 				$count++;
 				$match = preg_match( "`(.)*/`", $file, $matches );
 				if( $match && $matches[0] !== $folder ){
@@ -62,7 +49,7 @@
 		$panel .= "</ol>";
 		$panel .= "</div>";
 		echo Minify_HTML::minify( $panel );
-		echo Minify_HTML::minify( file_get_contents( "footer.php" ) );
+		echo Minify_HTML::minify( file_get_contents( $_SERVER[ 'DOCUMENT_ROOT' ]."/footer.php" ) );
 	?>
 </body>
 </html>

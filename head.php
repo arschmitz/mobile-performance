@@ -8,24 +8,24 @@
 	<script src="<?php echo SOCKETPATH; ?>/socket.io/socket.io.js"></script>
 
 	<?php
-		ini_set ( short_open_tag , false );
+		ini_set ( "short_open_tag" , false );
 		echo "<style>";
-		$files = scandir('./css');
+		$files = scandir($_SERVER[ 'DOCUMENT_ROOT' ].'/css');
 		$styles = "";
-		require( 'min/cssmin.php' );
+		require( $_SERVER[ 'DOCUMENT_ROOT' ].'/min/cssmin.php' );
 		foreach($files as $file){
 			if( $file !== "." && $file !== ".." && preg_match('/\./', $file ) && $file !== ".DS_Store" && $file !== "ajax-loader.gif" ) {
-				$styles .= file_get_contents( "./css/".$file );
+				$styles .= file_get_contents( $_SERVER[ 'DOCUMENT_ROOT' ]."/css/".$file );
 			}
 		}
 		echo CssMin::minify( $styles );
 		echo "</style>";
-		echo "<script src='scripts/'></script>";
+		echo "<script src='/scripts/'></script>";
 		echo "<script>";
-		if( $master ){
-			include( "./scripts/master.js" );
+		if( isset( $master ) ){
+			include( $_SERVER[ 'DOCUMENT_ROOT' ]."/scripts/master.js" );
 		} else {
-			include( "./scripts/slave.js" );
+			include( $_SERVER[ 'DOCUMENT_ROOT' ]."/scripts/slave.js" );
 		}
 		echo "</script>";
 	?>
